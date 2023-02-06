@@ -25,7 +25,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Extra Gather Bonuses", "David", "1.0.6")]
+    [Info("Extra Gather Bonuses", "David", "1.0.7")]
     [Description("Get extra items on gathering resources")]
     public class ExtraGatherBonuses : RustPlugin
     {
@@ -66,18 +66,39 @@ namespace Oxide.Plugins
 
         private void OnCropGather(GrowableEntity plant, Item item, BasePlayer player)
         {
-            OnGather(player, item.info.shortname);
+            try
+            {
+                OnGather(player, item.info.shortname);
+            }
+            catch
+            {
+                //
+            }
         }
 
         private void OnGrowableGathered(GrowableEntity plant, Item item, BasePlayer player)
         {
-            OnGather(player, item.info.shortname);
+            try
+            {
+                OnGather(player, item.info.shortname);
+            }
+            catch
+            {
+                //
+            }
         }
 
 
         private void OnDispenserBonus(ResourceDispenser dispenser, BasePlayer player, Item item)
         {
-            OnGather(player, item.info.shortname);
+            try
+            {
+                OnGather(player, item.info.shortname);
+            }
+            catch
+            {
+                //
+            }
         }
 
         #endregion
